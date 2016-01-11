@@ -1,7 +1,7 @@
 package recursos;
 
 // Enum puede ser usado como clase
-public enum AnimalesEnumDummy {
+public enum AnimalesEnum {
     GATO("miau"), PERRO("guau"), POLLO("pio"), RATON;
     
     // Puede o no tener constructor y miembros de clase
@@ -9,11 +9,11 @@ public enum AnimalesEnumDummy {
     
     // Constructor de Enum no tiene member modifier
     // NO puede ser llamado directamente
-    AnimalesEnumDummy() {
+    AnimalesEnum() {
         this.sonido = "ninguno";
     }
     
-    AnimalesEnumDummy(String sonido) {
+    AnimalesEnum(String sonido) {
         this.sonido = sonido;
     }
     

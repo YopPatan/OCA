@@ -1,6 +1,6 @@
 package tests;
 
-public class TestCondition {
+public class TestLogica {
 
 	public static void main(String[] args) {
 		System.out.println("CONDITIONS");

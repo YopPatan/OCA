@@ -3,7 +3,7 @@ package tests;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import recursos.MemberModifiersDummy;
+import recursos.MemberModifiers;
 
 
 public class TestArrayList {
@@ -24,11 +24,11 @@ public class TestArrayList {
         ArrayList voidArray2 = new ArrayList();
         ArrayList refArray1 = voidArray1;
         
-        MemberModifiersDummy member1 = new MemberModifiersDummy("dummy 1");
-        MemberModifiersDummy member2 = new MemberModifiersDummy("dummy 2");
-        MemberModifiersDummy member3 = new MemberModifiersDummy("dummy 3");
-        MemberModifiersDummy member4 = new MemberModifiersDummy("dummy 4");
-        MemberModifiersDummy memberRef = member1;
+        MemberModifiers member1 = new MemberModifiers("dummy 1");
+        MemberModifiers member2 = new MemberModifiers("dummy 2");
+        MemberModifiers member3 = new MemberModifiers("dummy 3");
+        MemberModifiers member4 = new MemberModifiers("dummy 4");
+        MemberModifiers memberRef = member1;
         
         
         // Usando add() y addAll()
@@ -70,7 +70,7 @@ public class TestArrayList {
         System.out.println("posicion 1: " + strArray1.get(1));
         System.out.println("posicion 3: " + strArray1.get(3));
         
-        MemberModifiersDummy memberRef2 = (MemberModifiersDummy) voidArray1.get(2);
+        MemberModifiers memberRef2 = (MemberModifiers) voidArray1.get(2);
         System.out.println("member: " + memberRef2.toString());
         memberRef2.strPublic = "member referencia 3";
         System.out.println("array: " + voidArray1.toString());
@@ -85,7 +85,7 @@ public class TestArrayList {
         // removeAll(coleccion) devuelve boolean segun eliminacion de la coleccion, puede eliminar parte o total del array buscado
         System.out.println("\nUsando remove() y removeAll()");
         System.out.println("array:" + voidArray1.toString());
-        MemberModifiersDummy memberDel = (MemberModifiersDummy) voidArray1.remove(1);
+        MemberModifiers memberDel = (MemberModifiers) voidArray1.remove(1);
         System.out.println("array remove: " + voidArray1.toString());
         System.out.println("remove 0: " + voidArray1.remove(member1));
         System.out.println("remove All no existe: " + voidArray1.removeAll(strArray1));

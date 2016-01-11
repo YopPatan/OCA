@@ -1,6 +1,6 @@
 package tests;
 
-import recursos.AnimalesEnumDummy;
+import recursos.AnimalesEnum;
 
 public class TestEnum {
     
@@ -40,7 +40,7 @@ public class TestEnum {
         PersonasEnum jorge = PersonasEnum.JORGE;
         System.out.println("jorge:" + jorge.getApellido() + " " + jorge.getEdad());
         
-        AnimalesEnumDummy perro = AnimalesEnumDummy.PERRO;
+        AnimalesEnum perro = AnimalesEnum.PERRO;
         System.out.println("perro: " + perro.getSonido());
     }
 }

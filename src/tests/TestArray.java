@@ -2,7 +2,7 @@ package tests;
 import java.util.Arrays;
 import java.util.List;
 
-import recursos.MemberModifiersDummy;
+import recursos.MemberModifiers;
 
 public class TestArray {
 	public static void main(String[] argv) {
@@ -29,13 +29,13 @@ public class TestArray {
 		int intArrayNulo[] = new int[2];
 		
 		// Creacion de arrays con objetos
-		MemberModifiersDummy[] memberArrayVacio = new MemberModifiersDummy[3];
-		MemberModifiersDummy memberArrayLleno[] = new MemberModifiersDummy[3];
-		MemberModifiersDummy memberArrayNulo[];
+		MemberModifiers[] memberArrayVacio = new MemberModifiers[3];
+		MemberModifiers memberArrayLleno[] = new MemberModifiers[3];
+		MemberModifiers memberArrayNulo[];
 		
-		memberArrayLleno[0] = new MemberModifiersDummy("member 1");
-		memberArrayLleno[1] = new MemberModifiersDummy("member 2");
-		memberArrayLleno[2] = new MemberModifiersDummy("member 3");
+		memberArrayLleno[0] = new MemberModifiers("member 1");
+		memberArrayLleno[1] = new MemberModifiers("member 2");
+		memberArrayLleno[2] = new MemberModifiers("member 3");
 
 		
 
@@ -85,7 +85,7 @@ public class TestArray {
 		
 		// OBJETO: Copia referencia de objetivos de un array a otro
 		System.arraycopy(memberArrayLleno, 0, memberArrayVacio, 1, 2);
-		for (MemberModifiersDummy member: memberArrayVacio) {
+		for (MemberModifiers member: memberArrayVacio) {
 			System.out.print(member + ", ");  // null, member 1, member 2,
 		}
 		System.out.print("TOTAL: " + memberArrayVacio.length + ", ");  // 3
@@ -116,7 +116,7 @@ public class TestArray {
 		
 		// MEMBER
 		memberArrayNulo = Arrays.copyOf(memberArrayLleno, 2);
-		for (MemberModifiersDummy valor: memberArrayNulo) {
+		for (MemberModifiers valor: memberArrayNulo) {
 			System.out.print(valor + ", ");
 		}
 		System.out.print("TOTAL: " + memberArrayNulo.length + ", ");  // 1
@@ -187,8 +187,8 @@ public class TestArray {
 		}
 		System.out.println();
 		
-		List<MemberModifiersDummy> memberListLleno = Arrays.asList(memberArrayLleno);
-		for (MemberModifiersDummy valor: memberListLleno) {
+		List<MemberModifiers> memberListLleno = Arrays.asList(memberArrayLleno);
+		for (MemberModifiers valor: memberListLleno) {
 			System.out.print(valor.strPublic + ", ");
 		}
 		System.out.println();
