@@ -1,5 +1,9 @@
 package recursos;
 
+// Usa extends para heredar
+
+import java.io.IOException;
+
 public class SubClase extends SuperClase {
 	
 	// Bloques estaticos no pueden tener member modifier
@@ -21,7 +25,7 @@ public class SubClase extends SuperClase {
 	}
 	
 	// Constructor de la clase
-	// Siempre se ejecuta el constructor de la SuperClase
+	// Siempre se ejecuta el constructor de la SuperClase primero
 	// Si tiene super(algo) ejecuta ese super-constructor, sino ejecuta el super-constructor por defecto (sin argumentos)
 	// Si no tiene super() ejecuta el constructor por defecto de SuperClase
 	public SubClase() {
@@ -43,14 +47,35 @@ public class SubClase extends SuperClase {
 	
 	// Metodo con el mismo nombre del constructor, NO es un constructor
 	public void SubClase() {
-		
 	}
+        
+        // OVERRIDDEN
+        // Puede lanzar excepcion iguales o mas especificas que en super
+        // Member Modifier tiene que ser igual o menos restringido que en super
+        // Debe retornar el mismo tipo de variable que en super
+        protected void superMetodo1() throws IOException {
+        }
+        
+        // OVERRIDDEN
+        // Puede no lanzar ninguna excepcion aunque super lanza excepcion
+        public void superMetodo2() {
+            System.out.println("ejecuta SubClase.superMetodo2()");
+        }
+        
+        // Aunque el metodo se llama igual que en super, no es overridden ya que en super es private
+        public void superMetodo3() {
+        }
 	
-	// Solo se permite una parametros var-args
-	// Parametro var-args debe estar siempre al final
-	public Boolean testVarArgs(int cantidad, String... elementos) {
-		System.out.println("ejecuta metodo SubClase::testVarArgs(int, Strings)");
-		return true;
-	}
-
+        private void subMetodo() throws NumberFormatException {
+        }
+        
+        // OVERLOADING
+        // Debe tener diferentes tipos o cantidad de argumentos
+        // Debe tener el mismo nombre
+        // Puede lanzar diferente tipo de excepcion
+        // Puede tener diferente Member Modifier
+        // Puede retornar diferente tipo de variable
+        public boolean subMetodo(String strVal) throws IOException {
+            return true;
+        }
 }

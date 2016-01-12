@@ -6,8 +6,11 @@ import recursos.SubClase;
 import recursos.SubMemberModifiers;
 import externo.ExtSubMemberModifiers;
 import recursos.MemberModifiers;
+import recursos.SuperClase;
 
 // Clase solo puede ser public o default
+// <MemberModifier> abstract class <ClassName>
+// <MemberModifier> y abstract puede estar en cualquier orden
 public class TestClase {
 	
 	// La declaracion de variable es segun el siguiente orden orden
@@ -31,7 +34,7 @@ public class TestClase {
 	
 	// Solo puede haber un main por clase
 	// Pueden existir otros metodos main pero no con los mismos parametros
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		System.out.println("ejecuta main");
 		
 		System.out.println("\ncrea SubClase()");
@@ -47,6 +50,7 @@ public class TestClase {
 		System.out.println("(4) ejecuta bloques");
 		System.out.println("(5) ejecuta constructores");
 		
+                
 		// public => clase, derivado (dentro y fuera de paquete), paquete, externo
 		// private => clase
 		// protected => clase, derivado (dentro y fuera paquete), paquete
@@ -64,6 +68,24 @@ public class TestClase {
 		System.out.println(submember.getStrDefault() + " => clase, derivado (mismo paquete), paquete");
 		System.out.println(submember.getNewStrDefault() + " => clase, derivado (mismo paquete), paquete");
 		
+                
+                // UPCASTING
+                // La inicializacion de variables es la misma que en instanciacion normal
+                // Ejecuta metodos de super que sean public o default cuando estan en el mismo paquete
+                // Ejecuta metodos overridden en sub (que cumplan tambien con la condicion anterior en super)
+                // NO puede ejecutar metodos propios de sub
+                System.out.println("\nupcasting");
+                SuperClase superVar1 = new SubClase();
+                superVar1.superMetodo2();
+                superVar1.superMetodo4();
+                
+                // DOWNCASTING
+                // En algunos casos lanza ClassCastException
+                // Se puede realizar downcasting dependiendo de los miembros de clases
+                System.out.println("\ndowncasting");
+                //SubClase subVar3 = (SubClase) new SuperClase();
+                System.out.println("ClassCastException");
+                
 	}
 	
 	
@@ -71,7 +93,13 @@ public class TestClase {
 	public Boolean testMethod() {
 		return true;
 	}
-	
+	        
+	// Solo se permite una parametros var-args
+	// Parametro var-args debe estar siempre al final
+	public Boolean testVarArgs(int cantidad, String... elementos) {
+		return true;
+	}
+
 }
 
 

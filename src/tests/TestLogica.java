@@ -17,7 +17,9 @@ public class TestLogica {
 		
 		// IF
 		// if sin {} considera solo la siguiente linea, a menos que sea otro if, en tal caso considera todos los if y else anidados
-		System.out.println("\nIF");
+		// La condicion SIEMPRE debe ser boolean
+                // 0 y 1 NO SON boolean, producen ERROR DE COMPILACION
+                System.out.println("\nIF");
 		for (int val: intArray) {
 			System.out.print(val + " ");
 			if (intVar1 == val || intVar2 == val) {
@@ -36,8 +38,20 @@ public class TestLogica {
 					System.out.println("entra a else");
 			}
 		}
-		
-		
+                
+
+                // IF TERNATY
+                System.out.println("\nIF TERNARY");
+                String resultado1 = (condicionOk()) ? "entro" : "NO entro";
+		System.out.println("resultado 1: " + resultado1);
+                String resultado2 = (condicionError()) ? "entro" : "NO entro";
+                System.out.println("resultado 2: " + resultado2);
+                String resultado3 = (condicionOk() | condicionError()) ? "entro" : "NO entro";
+                System.out.println("resultado 3: " + resultado3);
+                String resultado4 = (condicionOk() & condicionError()) ? "entro" : "NO entro";
+                System.out.println("resultado 4: " + resultado4);
+                
+                
 		// SWITCH
 		// switch puede tener variables o literales
 		// switch puede solo contener int, byte, char, string y enum (NO LONG, NI FLOAT, NI DOUBLE)
@@ -51,7 +65,7 @@ public class TestLogica {
 		// SI existe case para el valor asociado este se ejecutara primero independiente de donde este ubicado el default
 		// valores de case pueden o no ocupar ()
 		// valores de case necesitan ocupar () si se realiza un cast
-		System.out.println("\nSWITCH");
+		System.out.println("\nSWITCH 1");
 		for (int val: intArray) {
 			System.out.println("valor: " + val);
 			switch (val) {
@@ -78,8 +92,8 @@ public class TestLogica {
 					System.out.println("entro a noveno case 80");
 			}
 		}
-		System.out.println();
 		
+                System.out.println("\nSWITCH 2");
 		for (String val: strArray) {
 			System.out.println("valor: " + val);
 			switch (val) {
@@ -97,8 +111,92 @@ public class TestLogica {
 					System.out.println("entra a char");
 			}
 		}
-		System.out.println();
 		
-	}
+                
+                // if && => (ambos verdareros) si el primero el falso no ejecuta el segundo
+                // if || => (al menos uno verdadero) si el primero es verdadero no ejecuta el segundo
+                // if & => (ambos verdareros) ejecuta el primero y el segundo
+                // if | => (al menos uno verdadero) ejecuta el primero y el segundo
+                // if ^ => (SOLO uno verdadero) ejecuta el primero y el segundo
+                System.out.println("\nLOGICA");
+                System.out.println("Operadores && y ||");
+                
+                System.out.print("if || ");
+                if (condicionOk() || condicionError()) {}
+                System.out.println();
+                
+                System.out.print("if && ");
+                if (condicionError() && condicionOk()) {}
+                System.out.println();
+
+                System.out.print("if | ");
+                if (condicionOk() | condicionError()) {}
+                System.out.println();
+                
+                System.out.print("if & ");
+                if (condicionError() & condicionOk()) {}
+                System.out.println();
+                
+                System.out.print("if true ^ true ");
+                if (condicionOk() ^ condicionOk())
+                    System.out.println("entro");
+                else
+                    System.out.println("NO entro");
+
+                System.out.print("if false ^ true ");
+                if (condicionError() ^ condicionOk())
+                    System.out.println("entro");
+                else
+                    System.out.println("NO entro");
+
+                
+                // VAR++ => ocupa variable y despues suma
+                // ++VAR => suma y despues ocupa variable
+                // Ocurre al imprimir y al asignar variable
+                System.out.println("\nOperadores VAR++ y ++VAR");
+                
+                int intVar10 = 0;
+                System.out.print(intVar10);
+                System.out.println(" (VAR++) " + intVar10++);
+                System.out.print(intVar10);
+                System.out.println(" (++VAR) " + ++intVar10);
+                
+                System.out.print(intVar10);
+                int intVar11 = intVar10++;  // 2
+                System.out.println(" i=(VAR++) " + intVar11);
+                
+                System.out.print(intVar10);
+                int intVar12 = ++intVar10;  // 4
+                System.out.println(" i=(++VAR) " + intVar12);
+                
+                
+                // primitivos no tienen referencia
+                // wrapper class no tienen referencia
+                System.out.println("\nOTROS");
+                Boolean boolVar1 = new Boolean(true);
+                Boolean boolVar2 = boolVar1;
+                boolVar1 = false;
+                System.out.println(boolVar2);
+                
+                // a = b; if (a)
+                // Si no es boolean produce ERROR COMPILACION
+                boolVar1 = false;
+                boolVar2 = true;
+                if (boolVar1=boolVar2) {
+                    System.out.println(boolVar2);
+                }
+
+        }
+        
+        public static boolean condicionOk() {
+            System.out.print("ejecuta condicion Ok, ");
+            return true;
+        }
 	
+        public static boolean condicionError() {
+            System.out.print("ejecuta condicion Error, ");
+            return false;
+        }
+
+        
 }
