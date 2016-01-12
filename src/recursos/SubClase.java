@@ -5,6 +5,10 @@ package recursos;
 import java.io.IOException;
 
 public class SubClase extends SuperClase {
+
+	// Atributos no puede ser overridden
+	// Si son estaticos se pueden sobreescribir
+	public int intVar2 = 10;
 	
 	// Bloques estaticos no pueden tener member modifier
 	// Se ejecuta apenas se instancia la clase
@@ -35,9 +39,15 @@ public class SubClase extends SuperClase {
 	
 	public SubClase(String strVar) {
 		// Ejecutar el constructor especifico de la SuperClase
+		// super() invoca al constructor de super clase
 		// Si super() aparece, siempre debe ser la primera linea sin comentar, sino se produce un ERROR COMPILACION
 		super(strVar);
 		System.out.println("(6) ejecuta constructor privado SubClase(String)");
+		
+		// Super puede ser usado para llamar a cualquier atributo o metodo de la super clase
+		// No puede acceder a private
+		// Cuando se llama un atributo o un metodo puede estar en cualquier linea
+		int intVarLocal = super.intVar1;
 	}
 	
 	// Si el constructor es private solo se permite una instancia de la clase
@@ -48,34 +58,35 @@ public class SubClase extends SuperClase {
 	// Metodo con el mismo nombre del constructor, NO es un constructor
 	public void SubClase() {
 	}
-        
-        // OVERRIDDEN
-        // Puede lanzar excepcion iguales o mas especificas que en super
-        // Member Modifier tiene que ser igual o menos restringido que en super
-        // Debe retornar el mismo tipo de variable que en super
-        protected void superMetodo1() throws IOException {
-        }
-        
-        // OVERRIDDEN
-        // Puede no lanzar ninguna excepcion aunque super lanza excepcion
-        public void superMetodo2() {
-            System.out.println("ejecuta SubClase.superMetodo2()");
-        }
-        
-        // Aunque el metodo se llama igual que en super, no es overridden ya que en super es private
-        public void superMetodo3() {
-        }
+
+	// OVERRIDDEN
+	// Puede lanzar excepcion iguales o mas especificas que en super
+	// Member Modifier tiene que ser igual o menos restringido que en super
+	// Debe retornar el mismo tipo de variable que en super
+	protected void superMetodo1() throws IOException {
+	}
+
+	// OVERRIDDEN
+	// Puede no lanzar ninguna excepcion aunque super lanza excepcion
+	public void superMetodo2() {
+		System.out.println("ejecuta SubClase.superMetodo2()");
+	}
+
+	// Aunque el metodo se llama igual que en super, no es overridden ya que en super es private
+	public void superMetodo3() {
+	}
+
 	
-        private void subMetodo() throws NumberFormatException {
-        }
-        
-        // OVERLOADING
-        // Debe tener diferentes tipos o cantidad de argumentos
-        // Debe tener el mismo nombre
-        // Puede lanzar diferente tipo de excepcion
-        // Puede tener diferente Member Modifier
-        // Puede retornar diferente tipo de variable
-        public boolean subMetodo(String strVal) throws IOException {
-            return true;
-        }
+	private void subMetodo() throws NumberFormatException {
+	}
+
+	// OVERLOADING
+	// Debe tener diferentes tipos o cantidad de argumentos
+	// Debe tener el mismo nombre
+	// Puede lanzar diferente tipo de excepcion
+	// Puede tener diferente Member Modifier
+	// Puede retornar diferente tipo de variable
+	public boolean subMetodo(String strVal) throws IOException {
+		return true;
+	}
 }
