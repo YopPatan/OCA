@@ -90,6 +90,26 @@ public class TestClase {
 		System.out.println("ClassCastException");
 		
 		
+		// PASO DE PARAMETROS
+		// Cuando se pasa un primitivo, solo se modifica dentro del metodo
+		// Cuando se pasa un string, solo se modifica dentro del metodo ya que se crea uno nuevo
+		// Cuando se pasa una referencia, se modifica dentro y fuera del metodo
+		System.out.println("\nPASO DE PARAMETROS");
+
+		int intVar1 = 1;
+		String strVar1 = "1";
+		StringBuffer bufferVar1 = new StringBuffer("1");
+		
+		System.out.println("int antes de metodo: " + intVar1);
+		System.out.println("string antes de metodo: " + strVar1);
+		System.out.println("stringBuffer antes de metodo: " + bufferVar1);
+		
+		pasoDeParametros(intVar1, strVar1, bufferVar1);
+		
+		System.out.println("int despues de metodo: " + intVar1);
+		System.out.println("string despues de metodo: " + strVar1);
+		System.out.println("stringBuffer despues de metodo: " + bufferVar1);
+		
 	}
 	
 	
@@ -102,6 +122,16 @@ public class TestClase {
 	// Parametro var-args debe estar siempre al final
 	public Boolean testVarArgs(int cantidad, String... elementos) {
 		return true;
+	}
+	
+	public static void pasoDeParametros(int intVar, String strVar, StringBuffer bufferVar) {
+		intVar = 100;
+		strVar = "100";
+		bufferVar.append("000");
+		
+		System.out.println("int dentro de metodo: " + intVar);
+		System.out.println("string dentro de metodo: " + strVar);
+		System.out.println("stringBuffer dentro de metodo: " + bufferVar);
 	}
 
 }

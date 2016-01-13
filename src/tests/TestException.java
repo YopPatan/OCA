@@ -1,6 +1,8 @@
 package tests;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import recursos.ExceptionClase;
 
 import recursos.SuperClase;
 
@@ -29,18 +31,30 @@ public class TestException {
 		catch (ArithmeticException | NullPointerException e) {
 			System.out.println("\nArithmeticException");
 			
-			System.out.println("causa: " + e.getCause());
+            Throwable error = e.getCause();
+			System.out.println("causa: " + error);
 			System.out.println("mensaje: " + e.getMessage());
+            System.out.println("local mensaje: " + e.getLocalizedMessage());
+            System.out.println("to string: " + e.toString());
+            
+            StackTraceElement[] trace = e.getStackTrace();
+            
+            // Imprime por defecto
+            // e.printStackTrace();
 		}
 		
 		// Exception captura todas las excepciones incluyendo runtime exceptions
 		catch (Exception e) {
 			
 		}
+        
+        // Siempre se ejecuta independiente si entro o no a catch
 		finally {
 			
+            // TRY CON RECURSOS
 			// Pueden hacer try-catch anidados
-			try {
+            // Declara el recurso dentro de parentesis de try
+			try (FileWriter recurso = new FileWriter("prueba.txt")) {
 				objVar1.metodoErrorIO();
 			}
 			// Hay excepciones que solo se pueden capturar cuando esta declarado que puede ocurrir
@@ -59,9 +73,24 @@ public class TestException {
 				StackTraceElement[] trace = e.getStackTrace();
 				
 				// printStackTrace() imprime directamente la cadena de errores
-				e.printStackTrace();
-
-			}				
+				// e.printStackTrace();
+            }			
 		}
+        
+        System.out.println("\nEXCEPCION PERSONALIZADA");
+        try {
+            throw new ExceptionClase("excepcion personalizada");
+        }
+        
+        // Las excepciones propias solo se pueden capturar cuando esta declarado que puede ocurrir
+        // Se ocupa un metodo que la lance o lanzarla directamente con throw
+        catch (ExceptionClase e) {
+            System.out.println("mensaje: " + e.getMessage());
+            System.out.println("local mensaje: " + e.getLocalizedMessage());
+            System.out.println("to string: " + e.toString());
+            System.out.println("personalizado: " + e.getMensajePersonalizado());
+            
+            //e.printStackTrace();
+        }
 	}
 }

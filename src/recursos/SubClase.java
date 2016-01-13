@@ -4,11 +4,23 @@ package recursos;
 
 import java.io.IOException;
 
-public class SubClase extends SuperClase {
+// FINAL
+// Si una clase es declarada final, no puede ser heredable
+// Solo puede ser aplicada a atributos, metodos y clases
+// No puede usarse en interfaces ni clases abstractas
+final public class SubClase extends SuperClase {
 
 	// Atributos no puede ser overridden
 	// Si son estaticos se pueden sobreescribir
 	public int intVar2 = 10;
+	
+	// FINAL
+	// Si una variable es final tiene que estar instanciada
+	// Si una variable es declarada final no puede ser modificada
+	// Si un objeto es declarado final, quiere decir que no puede cambiar la referencia
+	// El objeto en si puede cambiar, por ejemplo StringBuffer puede cambiar de valor su string
+	public final int intVar3 = 50;
+	public final MemberModifiers memberVar1 = new MemberModifiers();
 	
 	// Bloques estaticos no pueden tener member modifier
 	// Se ejecuta apenas se instancia la clase
@@ -57,6 +69,12 @@ public class SubClase extends SuperClase {
 	
 	// Metodo con el mismo nombre del constructor, NO es un constructor
 	public void SubClase() {
+	}
+	
+	// FINAL
+	// Si un  metodo es declarado final, no puede ser overridden
+	public final void metodoFinal() {
+		
 	}
 
 	// OVERRIDDEN

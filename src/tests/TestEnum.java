@@ -31,7 +31,7 @@ public class TestEnum {
         }
     }
     
-    // Enum puede NO puede ser creado dentro de metodos
+    // Enum NO puede ser creado dentro de metodos
     public static void main(String[] args) {
         System.out.println("ENUMERATOR");
         
