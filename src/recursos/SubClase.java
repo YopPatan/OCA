@@ -10,9 +10,20 @@ import java.io.IOException;
 // No puede usarse en interfaces ni clases abstractas
 final public class SubClase extends SuperClase {
 
-	// Atributos no puede ser overridden
-	// Si son estaticos se pueden sobreescribir
-	public int intVar2 = 10;
+	// Puede reescribir atributos
+	// Puede incluso cambiar el tipo del atributo
+	// Si no se reescribe el atributo ocupa el de super
+	public String intVar2 = "hola";
+	public int intSubVar1 = 10;
+	
+	public int intVacioVar;
+	public long longVacioVar;
+	public float floatVacioVar;
+	public double doubleVacioVar;
+	public String stringVacioVar;
+	public Integer intWrapperVacioVar;
+	public Float floatWrapperVacioVar;
+	public static int intVacioStatic;
 	
 	// FINAL
 	// Si una variable es final tiene que estar instanciada
@@ -45,6 +56,9 @@ final public class SubClase extends SuperClase {
 	// Si tiene super(algo) ejecuta ese super-constructor, sino ejecuta el super-constructor por defecto (sin argumentos)
 	// Si no tiene super() ejecuta el constructor por defecto de SuperClase
 	public SubClase() {
+		this.intVar2 = "prueba 2";
+		this.intSubVar1 = 1002;
+		this.subMetodo();
 		System.out.println("(6) ejecuta constructor SubClase()");
 		
 	}
@@ -78,6 +92,7 @@ final public class SubClase extends SuperClase {
 	}
 
 	// OVERRIDDEN
+	// Asociado a polimorfismo
 	// Puede lanzar excepcion iguales o mas especificas que en super
 	// Member Modifier tiene que ser igual o menos restringido que en super
 	// Debe retornar el mismo tipo de variable que en super
@@ -96,6 +111,7 @@ final public class SubClase extends SuperClase {
 
 	
 	private void subMetodo() throws NumberFormatException {
+		System.out.println("ejecuta SubClase.subMetodo()");
 	}
 
 	// OVERLOADING

@@ -9,13 +9,15 @@ import recursos.SuperClase;
 public class TestException {
 	public static void main(String[] args) {
 		SuperClase objVar1 = new SuperClase();
+		int intVar1 = 34;
 		
 		// TRY
 		// Se usa para capturar un error
 		// Si un metodo declara un error se debe usar try o lanzar con throws el error fuera del metodo padre
+		// Si la asignacion de una variable produce una excepcion, entonces la variable queda con su valor anterior
 		try {
 			//objVar1.metodoNoImplementado();
-			int intVar1 = 10 / 0;
+			intVar1 = 10 / 0;
 		}
 		
 		// Puede tener 0 o mas catch
@@ -30,6 +32,7 @@ public class TestException {
 		}
 		catch (ArithmeticException | NullPointerException e) {
 			System.out.println("\nArithmeticException");
+			System.out.println("numero intVar: " + intVar1);
 			
             Throwable error = e.getCause();
 			System.out.println("causa: " + error);

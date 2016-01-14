@@ -1,5 +1,7 @@
 package tests;
 
+import recursos.AnimalesEnum;
+
 public class TestLogica {
 
 	public static void main(String[] args) {
@@ -18,8 +20,8 @@ public class TestLogica {
 		// IF
 		// if sin {} considera solo la siguiente linea, a menos que sea otro if, en tal caso considera todos los if y else anidados
 		// La condicion SIEMPRE debe ser boolean
-                // 0 y 1 NO SON boolean, producen ERROR DE COMPILACION
-                System.out.println("\nIF");
+		// 0 y 1 NO SON boolean, producen ERROR DE COMPILACION
+		System.out.println("\nIF");
 		for (int val: intArray) {
 			System.out.print(val + " ");
 			if (intVar1 == val || intVar2 == val) {
@@ -38,26 +40,37 @@ public class TestLogica {
 					System.out.println("entra a else");
 			}
 		}
-                
+		
+		// Solo se pueden negar boolean, no se puede negar integer o comparaciones
+		// if (!intVar > 10) {}
+		
 
-                // IF TERNATY
-                System.out.println("\nIF TERNARY");
-                String resultado1 = (condicionOk()) ? "entro" : "NO entro";
+		// IF TERNATY
+		System.out.println("\nIF TERNARY");
+		String resultado1 = (condicionOk()) ? "entro" : "NO entro";
 		System.out.println("resultado 1: " + resultado1);
-                String resultado2 = (condicionError()) ? "entro" : "NO entro";
-                System.out.println("resultado 2: " + resultado2);
-                String resultado3 = (condicionOk() | condicionError()) ? "entro" : "NO entro";
-                System.out.println("resultado 3: " + resultado3);
-                String resultado4 = (condicionOk() & condicionError()) ? "entro" : "NO entro";
-                System.out.println("resultado 4: " + resultado4);
-                
-                
+		String resultado2 = (condicionError()) ? "entro" : "NO entro";
+		System.out.println("resultado 2: " + resultado2);
+		String resultado3 = (condicionOk() | condicionError()) ? "entro" : "NO entro";
+		System.out.println("resultado 3: " + resultado3);
+		String resultado4 = (condicionOk() & condicionError()) ? "entro" : "NO entro";
+		System.out.println("resultado 4: " + resultado4);
+		
+		AnimalesEnum enumPerro = AnimalesEnum.PERRO;
+		String resultado5 = (enumPerro == AnimalesEnum.PERRO) ? "entro" : "NO entro";
+		System.out.println("resultado 5: " + resultado5);
+		AnimalesEnum enumVacio = (enumPerro == AnimalesEnum.PERRO) ? AnimalesEnum.GATO : AnimalesEnum.PERRO;
+		System.out.println("resultado 6: " + enumVacio.getSonido());
+		
+		
+		
+		
 		// SWITCH
 		// switch puede tener variables o literales
 		// switch puede solo contener int, byte, char, string y enum (NO LONG, NI FLOAT, NI DOUBLE)
 		// switch permite primitivos y wrapper classes
 		// switch no puede tener case con valores duplicados aunque sean dintintas variables
-		// case puede usar literales o variable con atributo final (constantes), esto aplica tambien a String aunque son inmutable
+		// case puede usar SOLO literales o variable con atributo final (constantes), esto aplica tambien a String aunque son inmutable
 		// case no ocupan {}
 		// cuando entra a un case que no tiene break, ejecuta cada uno de los siguientes case o default hasta encontrar un break o terminar el switch
 		// default puede estar en cualquier posicion dentro del switch o NO apararecer
@@ -93,7 +106,7 @@ public class TestLogica {
 			}
 		}
 		
-                System.out.println("\nSWITCH 2");
+		System.out.println("\nSWITCH 2");
 		for (String val: strArray) {
 			System.out.println("valor: " + val);
 			switch (val) {
@@ -112,91 +125,109 @@ public class TestLogica {
 			}
 		}
 		
-                
-                // if && => (ambos verdareros) si el primero el falso no ejecuta el segundo
-                // if || => (al menos uno verdadero) si el primero es verdadero no ejecuta el segundo
-                // if & => (ambos verdareros) ejecuta el primero y el segundo
-                // if | => (al menos uno verdadero) ejecuta el primero y el segundo
-                // if ^ => (SOLO uno verdadero) ejecuta el primero y el segundo
-                System.out.println("\nLOGICA");
-                System.out.println("Operadores && y ||");
-                
-                System.out.print("if || ");
-                if (condicionOk() || condicionError()) {}
-                System.out.println();
-                
-                System.out.print("if && ");
-                if (condicionError() && condicionOk()) {}
-                System.out.println();
+		
+		// if && => (ambos verdareros) si el primero el falso no ejecuta el segundo
+		// if || => (al menos uno verdadero) si el primero es verdadero no ejecuta el segundo
+		// if & => (ambos verdareros) ejecuta el primero y el segundo
+		// if | => (al menos uno verdadero) ejecuta el primero y el segundo
+		// if ^ => (SOLO uno verdadero) ejecuta el primero y el segundo
+		System.out.println("\nLOGICA");
+		System.out.println("Operadores && y ||");
+		
+		System.out.print("if || ");
+		if (condicionOk() || condicionError()) {}
+		System.out.println();
+		
+		System.out.print("if && ");
+		if (condicionError() && condicionOk()) {}
+		System.out.println();
 
-                System.out.print("if | ");
-                if (condicionOk() | condicionError()) {}
-                System.out.println();
-                
-                System.out.print("if & ");
-                if (condicionError() & condicionOk()) {}
-                System.out.println();
-                
-                System.out.print("if true ^ true ");
-                if (condicionOk() ^ condicionOk())
-                    System.out.println("entro");
-                else
-                    System.out.println("NO entro");
+		System.out.print("if | ");
+		if (condicionOk() | condicionError()) {}
+		System.out.println();
+		
+		System.out.print("if & ");
+		if (condicionError() & condicionOk()) {}
+		System.out.println();
+		
+		System.out.print("if true ^ true ");
+		if (condicionOk() ^ condicionOk())
+		    System.out.println("entro");
+		else
+		    System.out.println("NO entro");
 
-                System.out.print("if false ^ true ");
-                if (condicionError() ^ condicionOk())
-                    System.out.println("entro");
-                else
-                    System.out.println("NO entro");
+		System.out.print("if false ^ true ");
+		if (condicionError() ^ condicionOk())
+		    System.out.println("entro");
+		else
+		    System.out.println("NO entro");
 
-                
-                // VAR++ => ocupa variable y despues suma
-                // ++VAR => suma y despues ocupa variable
-                // Ocurre al imprimir y al asignar variable
-                System.out.println("\nOperadores VAR++ y ++VAR");
-                
-                int intVar10 = 0;
-                System.out.print(intVar10);
-                System.out.println(" (VAR++) " + intVar10++);
-                System.out.print(intVar10);
-                System.out.println(" (++VAR) " + ++intVar10);
-                
-                System.out.print(intVar10);
-                int intVar11 = intVar10++;  // 2
-                System.out.println(" i=(VAR++) " + intVar11);
-                
-                System.out.print(intVar10);
-                int intVar12 = ++intVar10;  // 4
-                System.out.println(" i=(++VAR) " + intVar12);
-                
-                
-                // primitivos no tienen referencia
-                // wrapper class no tienen referencia
-                System.out.println("\nOTROS");
-                Boolean boolVar1 = new Boolean(true);
-                Boolean boolVar2 = boolVar1;
-                boolVar1 = false;
-                System.out.println(boolVar2);
-                
-                // a = b; if (a)
-                // Si no es boolean produce ERROR COMPILACION
-                boolVar1 = false;
-                boolVar2 = true;
-                if (boolVar1=boolVar2) {
-                    System.out.println(boolVar2);
-                }
+		
+		// VAR++ => ocupa variable y despues suma
+		// ++VAR => suma y despues ocupa variable
+		// Ocurre al imprimir y al asignar variable
+		System.out.println("\nOperadores VAR++ y ++VAR");
+		
+		int intVar10 = 0;
+		System.out.print(intVar10);
+		System.out.println(" (VAR++) " + intVar10++);
+		System.out.print(intVar10);
+		System.out.println(" (++VAR) " + ++intVar10);
+		
+		System.out.print(intVar10);
+		int intVar11 = intVar10++;  // 2
+		System.out.println(" i=(VAR++) " + intVar11);
+		
+		System.out.print(intVar10);
+		int intVar12 = ++intVar10;  // 4
+		System.out.println(" i=(++VAR) " + intVar12);
+		
+		
+		// primitivos no tienen referencia
+		// wrapper class no tienen referencia
+		System.out.println("\nOTROS");
+		Boolean boolVar1 = new Boolean(true);
+		Boolean boolVar2 = boolVar1;
+		boolVar1 = false;
+		System.out.println(boolVar2);
+		
+		// a = b; if (a)
+		// Si no es boolean produce ERROR COMPILACION
+		boolVar1 = false;
+		boolVar2 = true;
+		if (boolVar1=boolVar2) {
+		    System.out.println(boolVar2);
+		}
+		
+		// ORDER DE EJECUCION
+		// Ejecuta primero /, *, %
+		// Despues ejecuta +, - segun el orden de izquierda a derecha
+		// Si - viene despues de un string arroja ERROR COMPILACION
+		// % devuelve lo que falta para llegar al entero 10 % 3 = 1
+		System.out.println("\nORDEN EN CONCATENACION");
+		System.out.println("foo" + 10/5);
+		System.out.println("foo" + 10 + 2);
+		System.out.println(10 + 2 + "foo");
+		System.out.println("foo" + 10 % 3);
+		
+		int intVarOper1 = 2 + 7*3;
+		int intVarOper2 = 2 + 7%3;
+		int intVarOper3 = 2 + (-3) * (-7);
+		System.out.println("2 + 7*3: " + intVarOper1);  // 23
+		System.out.println("2 + 7%3: " + intVarOper2);  // 3
+		System.out.println("2 + (-3) * (-7): " + intVarOper3);  // 23
 
-        }
-        
-        public static boolean condicionOk() {
-            System.out.print("ejecuta condicion Ok, ");
-            return true;
-        }
+	}
 	
-        public static boolean condicionError() {
-            System.out.print("ejecuta condicion Error, ");
-            return false;
-        }
+	public static boolean condicionOk() {
+	    System.out.print("ejecuta condicion Ok, ");
+	    return true;
+	}
+	
+	public static boolean condicionError() {
+	    System.out.print("ejecuta condicion Error, ");
+	    return false;
+	}
 
-        
+	
 }

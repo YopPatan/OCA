@@ -49,7 +49,7 @@ public class TestString {
 		System.out.println("referencia-literal: " + (strRef1 == strLiteral2));  // TRUE compara literal, ademas apuntan al mismo objeto
 		
 		
-		// USANDO equals
+		// USANDO equals()
 		// Literales puede usar equals
 		// Texto directo puede usar equals
 		// Es falso al comparar con equals un String con un StringBuffer.
@@ -61,16 +61,15 @@ public class TestString {
 		System.out.println("objeto-literal: " + strLleno1.equals(strLiteral1));  // TRUE
 		System.out.println("objeto-objeto: " + strLleno1.equals(strLleno2));  // TRUE
 		System.out.println("objeto-LITERALTEXTO: " + strLleno1.equals("PRUEBA 1"));  // FALSE
-		System.out.println(strBuffer1 + " equals " + builderLleno + ": " + strBuffer1.equals(builderLleno));
 		
 		
-		// USANDO equalsIgnoreCase
+		// USANDO equalsIgnoreCase()
 		System.out.println("\nComparacion de string usando equalsIgnoreCase()");
 		System.out.println("objeto-OBJETO: " + strLleno1.equalsIgnoreCase(strLleno3));  // TRUE
 		System.out.println("OBJETO-literal: " + strLleno3.equalsIgnoreCase(strLiteral1));  // TRUE
 		
 		
-		// USANDO compareTo
+		// USANDO compareTo()
 		// Solo funciona con String, NO para StringBuffer, NO para StringBuilder
 		// Si compareTo arreja 0 entonces los textos son iguales
 		System.out.println("\nComparacion de string usando compareTo()");
@@ -85,6 +84,7 @@ public class TestString {
 		System.out.println("\nLargo de string usando length()");
 		System.out.println("largo " + strLiteral1 + ": " + strLiteral1.length());
 		System.out.println("largo " + strLleno3 + ": " + strLleno3.length());
+		System.out.println("largo buffer " + bufferLleno + ": " + bufferLleno.length());
 		
 		
 		// USANDO charAt()
@@ -93,19 +93,9 @@ public class TestString {
 		// Si el indice a buscar esta fuera de rango se produce un StringIndexOutOfBoundsException
 		System.out.println("\nUsando charAt");
 		System.out.println("posicion 3 " + strLiteral1 + ": " + strLiteral1.charAt(3));
-		System.out.println("posicion 4 " + strLleno3 + ": " + strLleno3.charAt(3));
+		System.out.println("posicion 4 " + strLleno3 + ": " + strLleno3.charAt(4));
 		//System.out.println("posicion 20 " + strLleno3 + ": " + strLleno3.charAt(20));
-		
-		
-		// USANDO subString()
-		// Pueden ser usado con String, StringBuffer o StringBuilder
-		// Indice empieza en 0
-		// Posicion final es excluido
-		// Si el inicio y fin esta fuera de rango se produce un StringIndexOutOfBoundsException
-		System.out.println("\nUsando subString");
-		System.out.println("posicion 1 a 4 " + strLiteral1 + ": " + strLiteral1.substring(1, 4));
-		System.out.println("posicion 1 a 4 " + strLleno3 + ": " + strLleno3.substring(1, 4));
-		//System.out.println("posicion 1 a 20 " + strLleno3 + ": " + strLleno3.substring(1, 20));
+		System.out.println("posicion 4 buffer " + bufferLleno + ": " + bufferLleno.charAt(4));
 		
 		
 		// USANDO indexOf() y lastIndexOf()
@@ -117,11 +107,24 @@ public class TestString {
 		System.out.println("ultima posicion U " + strLleno4 + ": " + strLleno4.lastIndexOf("U"));
 		System.out.println("primera posicion F " + strLleno4 + ": " + strLleno4.indexOf("F"));
 		System.out.println("primera posicion RU " + strLleno4 + ": " + strLleno4.lastIndexOf("RU"));
+		System.out.println("indexOf buffer u " + bufferLleno + ": " + bufferLleno.indexOf("u"));
+		System.out.println("lastIndexOf buffer " + bufferLleno + ": " + bufferLleno.lastIndexOf("u"));
 		
 		
-		// USANDO replace
+		// USANDO subString()
 		// Pueden ser usado con String, StringBuffer o StringBuilder
-		// Retorna un nuevo String (NO StringBuffer), NO modifica el que se esta usando
+		// Indice empieza en 0
+		// Posicion final es excluido
+		// Si el inicio y fin esta fuera de rango se produce un StringIndexOutOfBoundsException
+		System.out.println("\nUsando subString()");
+		System.out.println("posicion 1 a 4 " + strLiteral1 + ": " + strLiteral1.substring(1, 4));
+		System.out.println("posicion 2 a 4 " + strLleno3 + ": " + strLleno3.substring(2, 4));
+		//System.out.println("posicion 1 a 20 " + strLleno3 + ": " + strLleno3.substring(1, 20));
+		System.out.println("posicion 1 a 4 buffer " + bufferLleno + ": " + bufferLleno.substring(1, 4));
+		
+		
+		// USANDO replace() String
+		// Retorna un nuevo String, NO modifica el que se esta usando
 		// Si el string buscado no existe no se realiza el reemplazo
 		System.out.println("\nUsando replace()");
 		System.out.println("remplazando U por _HOLA_ " + strLleno4 + ": " + strLleno4.replace("U", "_HOLA_"));
@@ -129,20 +132,42 @@ public class TestString {
 		String strReemplazado = strLleno2.replace("u", "U");
 		System.out.println("remplazando u por U anticipado " + strReemplazado);
 		
+		// USANDO replace() StringBuffer, StringBuilder
+		// Modifica el objeto y devuelve una referencia
+		// Ocupa posicion inicial, posicion final (incluye) y texto de reemplazo
+		System.out.println("remplazando buffer " + bufferLleno + ": " + bufferLleno.replace(1, 3, "RUE")); // posicion final incluye
+		System.out.println("remplazando buffer final " + bufferLleno);
+		
+		
+		// USANDO concat()
+		// Solo String
+		System.out.println("\nUsando concat()");
+		System.out.println("concatenando str " + strLleno4 + ": " + strLleno4.concat("_CONCAT_"));
+		// System.out.println("concatenando buffer " + bufferLleno + ": " + bufferLleno.concat("_CONCAT_"));
+		
 		
 		// USANDO trim(), toLowerCase() y toUpperCase()
-		// Pueden ser usado con String, StringBuffer o StringBuilder
-		// Los tres retornan un nuevo String (NO StringBuffer), NO modifican el que se esta usando
+		// Pueden ser usado solo con String
+		// Los tres retornan un nuevo String, NO modifican el que se esta usando
 		String strTrim = "  HOLA  ";
 		System.out.println("\nUsando trim(), toLowerCase() y toUpperCase()");
 		System.out.println("trim (" + strTrim + "): (" + strTrim.trim() + ")");
 		System.out.println("lower " + strLleno4 + ": " + strLleno4.toLowerCase());
 		System.out.println("upper " + strLiteral1 + ": " + strLiteral1.toUpperCase());
 		System.out.println("buffer upper " + strBuffer1 + ": " + strBuffer1.toUpperCase());
+
 		
+		
+		// STRINGBUFFER Y STRINGBUILDER
+		
+		// USANDO equals
+		System.out.println("\nUsando equals en StringBuffer");
+		System.out.println(strBuffer1 + " equals " + builderLleno + ": " + strBuffer1.equals(builderLleno)); // FALSO
+
 		
 		// USANDO append()
 		// Devuelve un referencia a StringBuffer y ademas modifica el que se esta usando
+		// Puede insertarse string, integer, float, etc.
 		// Agrega texto al final
 		System.out.println("\nUsando append");
 		System.out.println("texto: " + bufferLleno);
@@ -163,7 +188,7 @@ public class TestString {
 		
 		
 		// USANDO delete()
-		// Tiene inicio y termino (excluido)
+		// Se ingresa posicion inicial y final (excluido) 
 		// Devuelve un referencia a StringBuffer y ademas modifica el que se esta usando
 		// Si el indice a buscar esta fuera de rango se produce un StringIndexOutOfBoundsException
 		System.out.println("\nUsando delete()");

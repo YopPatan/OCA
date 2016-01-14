@@ -8,7 +8,7 @@ import java.io.IOException;
 public class SuperClase {
 	
 	public int intVar1 = 10;
-	public static int intVar2 = 10;
+	public int intVar2 = 100;
 	
 	// Siempre se ejecuta los estaticos de la superclase antes de estaticos de subclase
 	static {

@@ -29,6 +29,36 @@ public class TestLoop {
         }
         System.out.println();
         
+        
+        // En FOR ++VAR y VAR++ es lo mismo
+        // Ya que se ejecuta al final de cada ciclo
+        for (int i=1; i < 21; ++i) {
+        	
+        	// BREAK
+        	// Termina el loop
+        	// No puede ir codigo despues de usarse
+        	if (i % 20 == 0) {
+        		// System.out.println("break");
+        		break;
+        	}
+        	
+        	// CONTINUE
+        	// No puede ir codigo despues de usarse
+        	if (i % 3 == 0) {
+        		// System.out.println("continue");
+        		continue;
+        	}
+
+        	// SYSTEM.EXIT()
+        	// Debe llevar parentesis
+        	// Termina la aplicacion
+        	if (i > 100) {
+        		System.exit(0);
+        	}
+        	System.out.print(i + ", ");
+        }
+        System.out.println();
+        
         // FOREACH
         // Si el tipo del valor no corresponde al del arreglo muestra error de compilacion
         // Si se modifica valor dentro del foreach, no se altera fuera del foreach
@@ -52,6 +82,19 @@ public class TestLoop {
             }
         }
         System.out.println();
+        
+        // WHILE MAL ASIGNADO
+        // Funciona igual que if mal asignado
+        boolean boolVar = false;
+        int intVar = 0;
+        while (boolVar = true) {
+        	intVar++;
+        	if (intVar > 10) {
+        		break;
+        	}
+        }
+        System.out.println("while infinito: " + intVar);
+        
         
         // DO-WHILE
         System.out.println("\nDO-WHILE");

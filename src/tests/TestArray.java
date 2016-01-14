@@ -4,6 +4,8 @@ import java.util.List;
 
 import recursos.MemberModifiers;
 
+// Los metodos de arrays son estaticos
+// Arrays.metodo()
 public class TestArray {
 	public static void main(String[] argv) {
 		System.out.println("ARRAY");
@@ -201,5 +203,18 @@ public class TestArray {
 		System.out.println();
 		
 
+		// DECLARACIONES COMPUESTAS
+		// Si es inicializado {}  NO se puede definir dimension (tanto para array como para multiarray) 
+		// Puede tener {} o tener {valores}
+		// Multi array puede instanciarse solo con {} o tener {arreglos}
+		// En multi array cada elemento en {} es un array o null
+		System.out.println("\nDECLARACION COMPUESTAS DE ARRAY");
+		String[] strComp1 = new String[] {};
+		String[] strComp2 = new String[] {"10", "20", "30"};
+		// String[] strComp3 = new String[] {};
+		// String[] strComp4 = new String[3] {"10", "20", "30"};
+		String[][] strComp10 = new String[][] {};
+		String[][] strComp11 = new String[][] {null, null, {"10"}};
+		
 	}
 }

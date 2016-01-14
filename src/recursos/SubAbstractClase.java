@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 // Debe implementar todos los metodos abstractos de super o convertirse en abstracta
 // Debe implementar todas interfaces o convertirse en abstracta
 // Primero respeta la herencia y despues la implementacion
+// Debe ir primero extends y despues implements
 public class SubAbstractClase extends AbstractClase implements SubInterfaz1, SubInterfaz2 {
 
 	// IMPLEMENTACION METODO ABSTRACTO
@@ -19,6 +20,7 @@ public class SubAbstractClase extends AbstractClase implements SubInterfaz1, Sub
 	// SubInterfaz1 lanza IOExcepcion
 	// Implementacion lanza FileNotFoundException
 	public void metodoInterfaz3() throws FileNotFoundException {
+		System.out.println("Implementacion SuperInterfaz.metodoInterfaz3()");
 	}
 	
 	// IMPLEMENTACION INTERFACES
