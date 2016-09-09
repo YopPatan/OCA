@@ -1,4 +1,34 @@
 package tests;
+
+// STRING
+// .equals(string)
+// .equalsIgnoreCase(string)
+// .compareTo(string)
+// .length()
+// .chartAt(int indice)
+// .indexOf(string)
+// .lastIndexOf(string)
+// .substring(int inicio, int fin_excluido)
+// .replace(string orifinal, string reemplazo)
+// .concat(string)
+// .trim()
+// .toLowerCase()
+// .toUpperCase()
+
+// STRINGBUFFER / STRINGBUILDER
+// .equals(obj)
+// .length()
+// .charAt(int indice)
+// .indexOf(string)
+// .lasIndexOf(string)
+// .substring(int inicio, int fin_excluido)
+// .replace(int inicio, int fin)
+// .append(string)
+// .insert(int index, obj)
+// .delete(int inicio, int fin_excluido)
+// .reverse()
+// .toString()
+
 public class TestString {
 	public static void main(String[] args) {
 		System.out.println("STRING");
@@ -20,7 +50,8 @@ public class TestString {
 		// Sincronizado, mas pesado y funciona con hilos
 		// No se puede crear un StringBuffer usando literales
 		StringBuffer bufferLleno = new StringBuffer("prueba buffer 1");
-		StringBuffer bufferVacio = new StringBuffer();
+		StringBuffer bufferVacio = new StringBuffer();  // CAPACIDAD INICIAL DE 16 char
+		StringBuffer bufferVacio2 = new StringBuffer(5*10);  // CAPACIDAD INICIAL DE 50 char
 		StringBuffer bufferNulo;
 		
 		// STRING BUILDER
@@ -35,7 +66,7 @@ public class TestString {
 		String strBuilder1 = new String(builderLleno);
 		String strBuilder2 = new String(builderVacio);
 		
-
+		
 		// USANDO IGUALDAD
 		// Compara referencias en el caso de NO SER un literal
 		// Compara valores en el caso de ser literal
@@ -111,7 +142,7 @@ public class TestString {
 		System.out.println("lastIndexOf buffer " + bufferLleno + ": " + bufferLleno.lastIndexOf("u"));
 		
 		
-		// USANDO subString()
+		// USANDO substring()
 		// Pueden ser usado con String, StringBuffer o StringBuilder
 		// Indice empieza en 0
 		// Posicion final es excluido
@@ -147,7 +178,7 @@ public class TestString {
 		
 		
 		// USANDO trim(), toLowerCase() y toUpperCase()
-		// Pueden ser usado solo con String
+		// Solo con String
 		// Los tres retornan un nuevo String, NO modifican el que se esta usando
 		String strTrim = "  HOLA  ";
 		System.out.println("\nUsando trim(), toLowerCase() y toUpperCase()");

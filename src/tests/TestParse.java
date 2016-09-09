@@ -1,4 +1,18 @@
 package tests;
+
+import recursos.ExceptionClase;
+import recursos.SuperInterfaz;
+
+// PARSE
+// String.valueOf(primitivo) => devuelve string
+// Integer.valueOf(string) => devuelve int
+// Float.valueOf(string) => devuelve float
+// Double.valueOf(string) => devuelve double
+// Integer.parseInt(string) => devuelve int
+// Float.parseFloat(string) => devuelve float
+// Double.parseDouble(string) => devuelve double
+
+
 public class TestParse {
     
     public static void main(String[] args) {
@@ -20,6 +34,9 @@ public class TestParse {
         // No se puede realizar cast de desde o hacia String
         // Se puede realizar cast de int B16 a float B10
         // Se puede realizar cast de int B16 a int B10
+        // CUIDADO CON PARENTESIS:
+        // - ((String) ObjetoString).getIntegerValue();
+        // - (Integer) ObjetoString.getIntegerValue();
         System.out.println("\nCast");
         int floatToInt = (int) floatVar; // narrowing (estrechamiento)
         int byteToInt = (int) byteVar;
@@ -34,6 +51,11 @@ public class TestParse {
         System.out.println("double to float: " + doubleToFloat);
         System.out.println("b16 to float: " + intB16ToFloat);
         System.out.println("b16 to int: " + intB16ToInt);
+
+        
+		// Puede realizarse cast de cualquier cosa, pero no significa que no arroje Excepciones en runtime
+		// SuperInterfaz inter1 = (SuperInterfaz) new ExceptionClase("hola");
+
         
         // AUTOCAST
         // Se usa la suma (+) o resta (-) entre variables o la asignacion-suma (+=) o asignacion-resta (-=)

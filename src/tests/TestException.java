@@ -6,6 +6,37 @@ import recursos.ExceptionClase;
 
 import recursos.SuperClase;
 
+// CHECKED EXCEPTIONS
+// Condiciones invalidades fuera del control del programa (parametros mal ingresados por usuario, problemas en bd, red, archivos)
+// Errores de los cuales se puede recuperar
+// Deben ser capturadas o relanzadas
+// Capturar cuando podemos manejar el error
+// Relanzar cuando no es competencia nuestra
+// Heredan de Exception
+// - IOException
+//   - FileNotFoundException
+// - ClassNotFoundException
+// - IllegalAccessException
+// - IntantiationException
+
+// UNCHECKED EXCEPTIONS
+// Error de programacion (bugs)
+// No deben ser forzosamente declaradas ni capturadas
+// Heredan de RuntimeException
+// - ArithmeticException
+// - NullPointerException
+// - ArrayIndexOutBoundException
+// - IllegalArgumentException
+// - ClassCastException
+// - IllegalArgumentException
+// - IndexOutOfBoundException
+
+// ERRORES
+// No deben ser manejados
+// Heredan de Error
+// - StackOverflowError => NO EXCEPTION
+// - OutOfMemoryError => NO EXCEPTION
+
 public class TestException {
 	public static void main(String[] args) {
 		SuperClase objVar1 = new SuperClase();

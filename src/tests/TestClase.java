@@ -20,8 +20,14 @@ public class TestClase {
 	// Un atributo puede ser public, private, protected o default
 	private int intVar = 10;
 	private String strVar = "10";
-	private final long LONGVARCONST = 100L;
+	private final long LONGVARCONST = 100L;  // SE PUEDE O NO USAR L
 	private static long longVarStatic = 100L;
+	
+	double doubleVar = 10;
+	float floatVar = 10;  // CUANDO ES ENTERO PUEDE O NO TENER F
+	double doubleVar2 = 10.00;  // PUEDE O NO TENER D
+	float floatVar2 = 10.00F; // CUANDO ES PUNTO FLOTANTE DEBE TENER F
+
 	
 	
 	// El nombre de la variable puede tener letra, numero, (_), ($)
@@ -104,6 +110,11 @@ public class TestClase {
 		System.out.println("ClassCastException");
 		
 		
+		// UPCASTING PRE DOWNCASTING
+		// Se crea una variable con upcasting y despues se le realiza un cast a sub
+		SuperClase superVar2 = new SubClase();
+		System.out.println(((SubClase) superVar2).intVar3);
+		
 		// PASO DE PARAMETROS
 		// Cuando se pasa un primitivo, solo se modifica dentro del metodo
 		// Cuando se pasa un string, solo se modifica dentro del metodo ya que se crea uno nuevo
@@ -123,7 +134,6 @@ public class TestClase {
 		System.out.println("int despues de metodo: " + intVar1);
 		System.out.println("string despues de metodo: " + strVar1);
 		System.out.println("stringBuffer despues de metodo: " + bufferVar1);
-		
 		
 		// VALORES POR DEFECTO DE ATRIBUTOS
 		System.out.println("\nVALORES POR DEFECTO DE ATRIBUTOS");

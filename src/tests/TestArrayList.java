@@ -6,6 +6,23 @@ import java.util.Collections;
 import recursos.MemberModifiers;
 
 
+// ARRAYLIST
+// Collections.sort(arraylist)
+// .add(obj)
+// .add(int, obj)
+// .addAll(array)
+// .addAll(int, array)
+// .get(int)
+// .indexOf(obj)
+// .remove(obj)
+// .removeAll(array)
+// .set(int, obj)
+// .clear()
+// .toArray()
+// .size()
+// .equals()  // compara elementos
+
+
 public class TestArrayList {
 
     public static void main(String[] args) {

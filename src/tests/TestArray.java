@@ -6,6 +6,18 @@ import recursos.MemberModifiers;
 
 // Los metodos de arrays son estaticos
 // Arrays.metodo()
+
+// ARRAYS
+// System.arraycopy(array original, int indice_original, array destino, int indice_destino, largo)
+// Arrays.equals(array, array)
+// Arrays.deepEquals(array, array)
+// Arrays.copyOf(array, int largo) => crea un array
+// Arrays.copyOfRange(array, int inicio, int termino_excluido) => crea un array
+// Arrays.fill(array, valor)
+// Arrays.toString(array)
+// Arrays.deepToString(array)
+// Arrays.asList(array) => crea un list
+
 public class TestArray {
 	public static void main(String[] argv) {
 		System.out.println("ARRAY");
@@ -64,7 +76,7 @@ public class TestArray {
 		System.out.println("\nCopia de arreglo usando System.arraycopy()");
 		
 		// INTEGER: Copia valores primitivos de un array a otro
-		System.arraycopy(intArrayLleno, 0, intArrayVacio, 1, 3);
+		System.arraycopy(intArrayLleno, 0, intArrayVacio, 3, 1);
 		for (int valor: intArrayVacio) {
 			System.out.print(valor + ", ");  // 0, 1, 2, 3, 0
 		}
@@ -215,6 +227,12 @@ public class TestArray {
 		// String[] strComp4 = new String[3] {"10", "20", "30"};
 		String[][] strComp10 = new String[][] {};
 		String[][] strComp11 = new String[][] {null, null, {"10"}};
+		
+		
+		Object[] objArray1 = new Object[] {"string", new MemberModifiers(), new Float(10)}; // CUALQUIER ELEMENTO DE INTERFAZ OBJECT
+		Object[] objArray2 = new MemberModifiers[] {new MemberModifiers()}; // SOLO ELEMENTOS DE MEMBERMODIFIER
+		
+		MemberModifiers member20 = (MemberModifiers) objArray2[0]; // CUANDO SE OCUPA INTERFAZ SE DEBE CASTEAR
 		
 	}
 }

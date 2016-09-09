@@ -22,4 +22,5 @@ public class MemberModifiers {
 		// private => solo dentro de la clase
 		return this.strPrivate;
 	}
+
 }
