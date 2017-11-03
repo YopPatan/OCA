@@ -8,12 +8,14 @@ package tests;
 // .chartAt(int indice)
 // .indexOf(string)
 // .lastIndexOf(string)
+// .substring(int inicio) => hasta el final del string
 // .substring(int inicio, int fin_excluido)
 // .replace(string orifinal, string reemplazo)
 // .concat(string)
 // .trim()
 // .toLowerCase()
 // .toUpperCase()
+// .split(String s) => NUEVO
 
 // STRINGBUFFER / STRINGBUILDER
 // .equals(obj)

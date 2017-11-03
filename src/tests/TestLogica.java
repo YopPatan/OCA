@@ -14,7 +14,7 @@ public class TestLogica {
 		final int intVar3 = 50;
 		final long longVar = 70L;
 		final float floatVar = 60.0F;
-		final char charVar = 'a';
+		final char charVar = 'a'; // SIEMPRE TIENE QUE ESTAR EN COMILLAS SIMPLES
 		final String strVar = "20a";
 		
 		// IF
